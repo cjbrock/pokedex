@@ -1,5 +1,7 @@
 import React from 'react'
 import { Form } from 'semantic-ui-react'
+import {connect} from 'react-redux'
+import {addPokemon} from '../actions/pokemon'
 
 class PokemonForm extends React.Component {
   constructor() {
@@ -16,30 +18,8 @@ class PokemonForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    const { name, hp, frontUrl, backUrl } = this.state
-    fetch('http://localhost:3000/pokemon', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
-      body: JSON.stringify({
-        name,
-        stats: [
-          {
-            value: hp,
-            name: 'hp'
-          }
-        ],
-        sprites: {
-          front: frontUrl,
-          back: backUrl
-        }
-      })
-    })
-      .then(resp => resp.json())
-      .then(pokemon => this.props.addPokemon(pokemon))
-      .catch(error => console.error(error))
+    // write redux action to do the patch
+    this.props.addPokemon(this.state)
     this.setState(this.getInitialState())
   }
 
@@ -91,4 +71,4 @@ class PokemonForm extends React.Component {
   }
 }
 
-export default PokemonForm
+export default connect(null, {addPokemon})(PokemonForm)
