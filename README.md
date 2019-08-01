@@ -1,4 +1,6 @@
-# React Searcher
+
+# React Pokemon Searcher
+
 
 ## React Code Challenge Practice
 
