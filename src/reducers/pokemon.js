@@ -6,6 +6,9 @@ export default (state = [], action) => {
         return state
     case "SET_MON":
         return action.pokemon
+    case "FETCH_COMPLETE":
+        console.log("done fetching!")
+        return state
 
     case "ADD_POKEMON":
         return [...state, action.pokemon]

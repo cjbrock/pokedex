@@ -9,15 +9,15 @@ import {fetchPokemon, setSearch} from '../actions/pokemon'
 class PokemonPage extends React.Component {
   // state ={
   //   searchTerm: "",
-  //   // pokemon:[]
+  //   pokemon:[]
   // }
 
   componentDidMount(){
     this.props.fetchPokemon()
 
-  //   fetch("http://localhost:3000/pokemon")
-  //       .then(resp => resp.json())
-  //       .then(pokemon => this.setState({pokemon}))
+    // fetch("http://localhost:3000/pokemon")
+    //     .then(resp => resp.json())
+    //     .then(pokemon => this.setState({pokemon}))
    }
 
   search = (e, {value}) =>{
@@ -52,13 +52,12 @@ const mapStateToProps = state =>{
   }
 }
 
-const mapDispatchToProps = dispatch =>{
-  return{
-    fetchPokemon: () => dispatch(fetchPokemon()),
-    setSearch: (searchTerm) => dispatch(setSearch(searchTerm))
-  }
-  
-}
+// const mapDispatchToProps = dispatch =>{
+//   return{
+//     fetchPokemon: () => dispatch(fetchPokemon()),
+//     setSearch: (searchTerm) => dispatch(setSearch(searchTerm))
+//   }
+// }
 
-// export default connect(mapStateToProps, {fetchPokemon, setSearch})(PokemonPage)
-export default connect(mapStateToProps, mapDispatchToProps)(PokemonPage)
+export default connect(mapStateToProps, { fetchPokemon, setSearch })(PokemonPage)
+// export default connect(mapStateToProps, mapDispatchToProps)(PokemonPage)

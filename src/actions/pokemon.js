@@ -6,7 +6,7 @@ export const fetchPokemon = () => {
         return fetch("http://localhost:3000/pokemon")
         .then(resp => resp.json())
         .then(pokemon =>dispatch({type:"SET_MON", pokemon} ))
-        // .then(x => dispatch({type:"FETCH_COMPLETE"}))
+        .then(x => dispatch({type:"FETCH_COMPLETE"}))
         
       };
 }
